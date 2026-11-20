@@ -1,6 +1,6 @@
 # Better Off, Less Equal?
 
-A one-page briefing on US inequality and living standards. It measures the same households four ways and gives the bull case and the bear case for each:
+A one-page briefing on US inequality and living standards. It measures the same households four ways, with two charts for the bull case and two for the bear case under each:
 
 1. **Market income**: Census household income at selected percentiles, 1967–2024
 2. **Income after taxes and transfers**: CBO's distribution of household income, plus poverty measured against fixed standards
