@@ -16,10 +16,10 @@
 :root{color-scheme:light dark;
 --bg:light-dark(#ffffff,#10191e);--ink:light-dark(#121212,#eef2f4);--muted:light-dark(#5a6168,#a7b3ba);
 --rule:light-dark(#d6dadd,#2c3a41);--panel:light-dark(#e3ecf0,#18262d);--red:light-dark(#e3120b,#ff5a4e);
---slate:light-dark(#2e6f8e,#6fb3d3);--grid:light-dark(#e5e8ea,#24323a);
+--slate:light-dark(#1565c0,#64b5f6);--grid:light-dark(#e5e8ea,#24323a);
 --c1:light-dark(#c2410c,#ff8a4c);--c2:light-dark(#e07b39,#f2a46d);--c4:light-dark(#4f9179,#7cc4a8);
 --c5:light-dark(#3b7dc4,#78aee8);--c6:light-dark(#1e3f73,#a8c6f0);--c7:light-dark(#5b3e8e,#c3a8ec);--c8:light-dark(#121212,#eef2f4);
---soft1:light-dark(#9aa5b1,#5d6a74);--softs:light-dark(#9fc3d6,#3c6075);--softr:light-dark(#f2a39e,#7a3a35)}
+--soft1:light-dark(#9aa5b1,#5d6a74);--softs:light-dark(#9cc4ee,#2f5a85);--softr:light-dark(#f2a39e,#7a3a35)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
@@ -136,8 +136,8 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 <p class="measures"><b>Captures:</b> market income plus Social Security, Medicaid, SNAP and refundable credits, minus federal taxes. <b>Misses:</b> saving and borrowing, state and local taxes.</p>
 <div class="spread">
 <div class="col better"><div class="colhead">Things got better for everyone</div>
-<figure><figcaption>Taxes and transfers cut the top-to-bottom gap from 14× to 6×</figcaption><div class="sub">Average household income by quintile, 2023, thousands of dollars</div><div class="fig" id="d1"></div><div class="legend" id="d1-lg"></div><p class="src">CBO, 2023. Middle quintiles and after-transfer values read from CBO chart labels.</p></figure>
 <figure><figcaption>Count all the help families get, and poverty has fallen far more than the official rate shows</figcaption><div class="sub">Percent of Americans below a poverty line held fixed after inflation. Each pair compares a fuller measure with the official one over the same years.</div><div class="db" id="d2"></div><div class="legend"><span><i class="dot0"></i>Start year</span><span><i class="dot1"></i>End year</span></div><p class="src">Burkhauser, Corinth, Elwell &amp; Larrimore, NBER WP 26532 (full-income); Meyer &amp; Sullivan, Consumption Poverty Report 2022. The consumption line is set so its 2015 rate equals the official rate; held fixed back to 1980, it captured a third of Americans. Compare how far each rate fell, not the starting levels.</p></figure>
+<figure><figcaption>Taxes and transfers cut the top-to-bottom gap from 14× to 6×</figcaption><div class="sub">Average household income by quintile, 2023, thousands of dollars</div><div class="fig" id="d1"></div><div class="legend" id="d1-lg"></div><p class="src">CBO, 2023. Middle quintiles and after-transfer values read from CBO chart labels.</p></figure>
 </div>
 <div class="col wider"><div class="colhead">And the gap got wider</div>
 <figure><figcaption>After taxes and transfers, the top 1% share still nearly doubled</figcaption><div class="sub">Share of income after transfers and taxes, percent</div><div class="fig" id="d3"></div><div class="legend" id="d3-lg"></div><p class="src">CBO, 2023. Middle three quintiles lost 5 points over the same period.</p></figure>
@@ -152,8 +152,8 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 <p class="measures"><b>Captures:</b> what households actually spend, own and use — and how long they live to enjoy it. <b>Misses:</b> survey under-reporting, quality change, leisure.</p>
 <div class="spread">
 <div class="col better"><div class="colhead">Things got better for everyone</div>
-<figure><figcaption>The spending gap grew far less than the income gap</figcaption><div class="sub">How much the gap between a household at the 90th percentile and one at the 10th grew, for after-tax income and for spending (percent increase in the 90th ÷ 10th ratio)</div><div class="fig" id="c1"></div><div class="legend" id="c1-lg"></div><p class="src">Meyer &amp; Sullivan, NBER Reporter 2018; 1980–2011 from their 2013 paper.</p></figure>
 <figure><figcaption>Low-income households now own what was once middle-class</figcaption><div class="sub">Percent of households in the lowest income fifth owning each item, 1998 vs today</div><div class="fig" id="c2"></div><div class="legend" id="c2-lg"></div><p class="src">1998: Census SIPP, bottom income fifth. Today: AC, dishwasher — EIA RECS 2020, bottom fifth estimated from income brackets; computer (desktop or laptop) and home internet (broadband subscription) — Census ACS 2021, households under $25k; phone (smartphone) — Pew 2026, adults under $30k. *Internet: 2000 value is families under $25k with home internet access (Census, earliest available).</p></figure>
+<figure><figcaption>The spending gap grew far less than the income gap</figcaption><div class="sub">How much the gap between a household at the 90th percentile and one at the 10th grew, for after-tax income and for spending (percent increase in the 90th ÷ 10th ratio)</div><div class="fig" id="c1"></div><div class="legend" id="c1-lg"></div><p class="src">Meyer &amp; Sullivan, NBER Reporter 2018; 1980–2011 from their 2013 paper.</p></figure>
 </div>
 <div class="col wider"><div class="colhead">And the gap got wider</div>
 <figure><figcaption>Over a generation, top earners gained 7 years of life; bottom earners gained none</figcaption><div class="sub">Average age at death for men who reach 50, by lifetime earnings, born in 1930 vs 1960 (axis starts at age 70)</div><div class="fig" id="c3"></div><div class="legend" id="c3-lg"></div><p class="src">National Academies of Sciences, The Growing Gap in Life Expectancy by Income (2015). 1960 values are projections. Women: the top-to-bottom gap grew from 4 to 13.6 years.</p></figure>
