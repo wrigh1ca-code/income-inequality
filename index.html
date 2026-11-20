@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Two Things Can Be True</title>
+<title>Income Inequality in America: Two Things Can Be True</title>
 <meta name="description" content="Two things can be true: US living standards rose for everyone, and the gap between top and bottom grew. Four measures, charted side by side.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
@@ -24,15 +24,22 @@
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
 h1,h2{font-family:"Source Serif 4",Georgia,serif;line-height:1.08;text-wrap:balance;margin:0}
-h1{font-size:clamp(34px,5vw,52px);max-width:22ch}
+h1{font-size:clamp(44px,6.4vw,92px);line-height:1;letter-spacing:-.015em;max-width:none}
 h2{font-size:clamp(28px,3.4vw,38px)}
 p{margin:0;max-width:70ch}
 a{color:var(--slate)}
 .wrap{max-width:1240px;margin:0 auto;padding:0 max(4vw,16px)}
-.tab{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:14px;padding:6px 12px;margin-bottom:22px}
-header{padding:40px 0 28px}
-.dek{font-size:18px;color:var(--muted);margin-top:14px}
-.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:28px;border-top:2px solid var(--ink)}
+.eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:28px;font-size:14px;font-weight:600;color:var(--muted)}
+.eyebrow span{width:44px;height:8px;background:var(--red);flex:none}
+.subtitle{margin:14px 0 0;max-width:none;font:italic 500 clamp(30px,3.9vw,56px)/1.08 "Source Serif 4",Georgia,serif;color:var(--red)}
+.hrule{height:1px;background:var(--rule);margin:40px 0 28px}
+.lead{display:flex;flex-wrap:wrap;gap:24px 56px;align-items:flex-end;justify-content:space-between}
+.tagline{margin:0;max-width:30ch;font:600 clamp(27px,2.7vw,36px)/1.18 "Source Serif 4",Georgia,serif}
+.tagline .up{color:var(--slate)}.tagline .down{color:var(--red)}
+.lead .dek{margin:0;max-width:46ch;font-size:17px;line-height:1.55}
+header.wrap{padding-top:64px;padding-bottom:36px}
+.dek{font-size:18px;color:var(--muted)}
+.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:36px;border-top:2px solid var(--ink)}
 .figs div{padding:14px 18px 4px 0;border-right:1px solid var(--rule);margin-right:18px}
 .figs div:last-child{border:0}
 .figs b{display:block;font:700 clamp(26px,3vw,36px)/1.1 "Source Serif 4",serif;white-space:nowrap}
@@ -88,9 +95,14 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 </head>
 <body>
 <header class="wrap">
-<span class="tab">Two things can be true</span>
-<h1>Things got better for everyone. And the gap got wider.</h1>
+<div class="eyebrow"><span></span>A data briefing · November 2026</div>
+<h1>Income Inequality in America</h1>
+<p class="subtitle">Two Things Can Be True</p>
+<div class="hrule"></div>
+<div class="lead">
+<p class="tagline"><span class="up">Things got better for everyone.</span> <span class="down">And the gap got wider.</span></p>
 <p class="dek">Four ways to measure well-being in America. For each, the left column shows how lives improved; the right shows how the distance between the top and the bottom grew.</p>
+</div>
 <div class="figs">
 <div><b>+59%</b><span>Real income, 10th percentile, 1967–2024</span></div>
 <div><b>+130%</b><span>Real income, 95th percentile, 1967–2024</span></div>
@@ -99,7 +111,7 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 </div>
 </header>
 <nav><div class="wrap">
-<a href="#market">1 · Market income</a><a href="#disposable">2 · After taxes &amp; transfers</a><a href="#consumption">3 · Consumption</a><a href="#wealth">4 · Wealth</a><a href="#sources">Sources</a>
+<a href="#market">1 · Market income</a><a href="#disposable">2 · After taxes &amp; transfers</a><a href="#consumption">3 · Consumption &amp; quality of life</a><a href="#wealth">4 · Wealth</a><a href="#sources">Sources</a>
 </div></nav>
 
 <main class="wrap">
