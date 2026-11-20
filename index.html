@@ -59,6 +59,7 @@ figcaption{font-weight:700;font-size:17px;line-height:1.3;text-wrap:balance}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;margin-top:8px}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
 .src{font-size:13px;color:var(--muted);margin-top:6px}
+.axt{font-size:13px;color:var(--muted);text-align:center;margin-top:2px}
 .db{margin-top:8px}
 .dbg{font-weight:700;font-size:14px;margin:14px 0 4px;padding-top:8px;border-top:1px solid var(--rule)}
 .dbg:first-child{border:0;margin-top:4px}
@@ -109,7 +110,7 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 <div class="spread">
 <div class="col better"><div class="colhead">Things got better for everyone</div>
 <figure><figcaption>Real median household income, and real income near the bottom, are at or near record highs</figcaption><div class="sub">Real (inflation-adjusted) household income, thousands of 2024 dollars. The median is the 50th percentile; the 10th and 20th percentile lines show the income of a household 10% and 20% of the way up from the bottom.</div><div class="fig" id="m1"></div><div class="legend" id="m1-lg"></div><p class="src">Census P60-286, Table A-4a.</p></figure>
-<figure><figcaption>Real income grew at every percentile</figcaption><div class="sub">Total real growth in household income, 1967 → 2024 (average annual growth below each total)</div><div class="fig" id="m2"></div><p class="src">Census P60-286, Table A-4a.</p></figure>
+<figure><figcaption>Total real income growth, 1967–2024, across the income distribution</figcaption><div class="sub">Percent change in real (inflation-adjusted) household income from 1967 to 2024, at each income percentile. Large figure: total growth over the 57 years. Small figure: the same growth as an average per year.</div><div class="fig" id="m2"></div><div class="axt">Income percentile — 10th is near the bottom, 50th is the median, 95th is near the top</div><p class="src">Census P60-286, Table A-4a.</p></figure>
 </div>
 <div class="col wider"><div class="colhead">And the gap got wider</div>
 <figure><figcaption>The top has pulled away from the bottom</figcaption><div class="sub">Ratio of household income at the 95th percentile to the 20th, and the 90th to the 10th</div><div class="fig" id="m3"></div><div class="legend" id="m3-lg"></div><p class="src">Census P60-286, Table A-4a; ratios computed from it.</p></figure>
@@ -262,7 +263,7 @@ const xt=[1970,1980,1990,2000,2010,2020];
 lines('m1',{x0:1967,x1:2024,y0:0,y1:90,yt:[0,15,30,45,60,75,90],yf:v=>'$'+v+'k',xt,endW:62,
   series:[[1,'10th','--c1'],[2,'20th','--c2'],[4,'Median','--slate']].map(([i,n,c])=>({name:n,c,end:k(last[i]),pts:C.map(r=>[r[0],r[i]/1000])})),label:'Income at 10th, 20th and 50th percentiles'});
 const yrsN=last[0]-first[0],cg={};pn.forEach((_,i)=>{const g=Math.round((last[i+1]/first[i+1]-1)*100);cg[g]=((Math.pow(last[i+1]/first[i+1],1/yrsN)-1)*100).toFixed(1);});
-bars('m2',{vl2:true,cats:pn,series:[{name:'Growth',c:'--slate',vals:pn.map((_,i)=>Math.round((last[i+1]/first[i+1]-1)*100))}],fmt:v=>'+'+v+'%|'+cg[v]+'%/yr',label:'Real income growth by percentile, total and per year'});
+bars('m2',{vl2:true,cats:pn.map(p=>p+' pct.'),short:pn,series:[{name:'Growth',c:'--slate',vals:pn.map((_,i)=>Math.round((last[i+1]/first[i+1]-1)*100))}],fmt:v=>'+'+v+'%|'+cg[v]+'%/yr',label:'Real income growth by percentile, total and per year'});
 lines('m3',{x0:1967,x1:2024,y0:4,y1:14,yt:[4,6,8,10,12,14],yf:v=>v+'×',xt,endW:52,
   series:[{name:'90th ÷ 10th',c:'--red',end:(last[7]/last[1]).toFixed(1)+'×',pts:C.map(r=>[r[0],r[7]/r[1]])},{name:'95th ÷ 20th',c:'--c7',end:(last[8]/last[2]).toFixed(1)+'×',pts:C.map(r=>[r[0],r[8]/r[2]])}],label:'Income ratios over time'});
 bars('m4',{cats:['Top 1%','Lowest 20%'],series:[{name:'1979',c:'--softr',vals:[9,5]},{name:'2023',c:'--red',vals:[16,4]}],fmt:v=>v+'%',label:'Pre-tax income shares 1979 vs 2023'});
