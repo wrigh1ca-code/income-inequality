@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Better Off, Less Equal?</title>
-<meta name="description" content="US inequality and living standards measured four ways — market income, income after taxes and transfers, consumption, and wealth — with two bull-case and two bear-case charts for each.">
+<title>Two Things Can Be True</title>
+<meta name="description" content="Two things can be true: US living standards rose for everyone, and the gap between top and bottom grew. Four measures, charted side by side.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
 /* VOICE: an economics desk's data page — charts first, words only as labels.
-   IDEA: a printed briefing; each measure is a spread with a bull column and a bear column of charts.
+   IDEA: a printed briefing; each measure is a spread: "better for everyone" charts beside "gap got wider" charts.
    PICTURE: the charts themselves, two per side, each titled by its finding.
-   COLOUR and TYPE: white / ink, red tab and bear accent, slate bull accent, pale panels; Source Serif 4 heads, Inter body.
-   LAYOUT: red tab, headline, figures row, then four spreads of bull | bear columns on one baseline. */
+   COLOUR and TYPE: white / ink, red tab and "wider" accent, slate "better" accent, pale panels; Source Serif 4 heads, Inter body.
+   LAYOUT: red tab, headline, figures row, then four two-column spreads on one baseline. */
 :root{color-scheme:light dark;
 --bg:light-dark(#ffffff,#10191e);--ink:light-dark(#121212,#eef2f4);--muted:light-dark(#5a6168,#a7b3ba);
 --rule:light-dark(#d6dadd,#2c3a41);--panel:light-dark(#e3ecf0,#18262d);--red:light-dark(#e3120b,#ff5a4e);
@@ -47,10 +47,10 @@ section{padding:52px 0 36px;border-bottom:1px solid var(--rule)}
 .measures b{color:var(--ink)}
 .spread{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:2px solid var(--ink)}
 .col{padding:18px 28px 0 0;display:grid;gap:36px;align-content:start}
-.col.bear{padding:18px 0 0 28px;border-left:1px solid var(--rule)}
+.col.wider{padding:18px 0 0 28px;border-left:1px solid var(--rule)}
 .colhead{display:flex;align-items:center;gap:10px;font:700 22px/1.2 "Source Serif 4",serif;margin-bottom:-14px}
 .colhead::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--slate)}
-.bear .colhead::before{background:var(--red)}
+.wider .colhead::before{background:var(--red)}
 figure{margin:0}
 figcaption{font-weight:700;font-size:17px;line-height:1.3;text-wrap:balance}
 .sub{font-size:14px;color:var(--muted);margin:2px 0 6px}
@@ -59,20 +59,37 @@ figcaption{font-weight:700;font-size:17px;line-height:1.3;text-wrap:balance}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;margin-top:8px}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
 .src{font-size:13px;color:var(--muted);margin-top:6px}
+.db{margin-top:8px}
+.dbg{font-weight:700;font-size:14px;margin:14px 0 4px;padding-top:8px;border-top:1px solid var(--rule)}
+.dbg:first-child{border:0;margin-top:4px}
+.dbr{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) 112px;gap:12px;align-items:center;padding:6px 0}
+.dbl b{display:block;font-size:14.5px;line-height:1.25}.dbl small{display:block;font-size:12.5px;color:var(--muted);line-height:1.3}
+.dbr.off .dbl b{font-weight:500;color:var(--muted)}
+.dbt{position:relative;height:22px;background:linear-gradient(var(--grid),var(--grid)) 0 50%/100% 1px no-repeat}
+.dbline{position:absolute;top:50%;height:3px;margin-top:-1.5px;background:var(--slate);opacity:.45}
+.dbr.off .dbline{background:var(--soft1)}
+.dot{position:absolute;top:50%;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%}
+.dot0,.legend i.dot0{background:var(--bg);border:2.5px solid var(--softs)}
+.dot1,.legend i.dot1{background:var(--slate)}
+.dbr.off .dot1{background:var(--soft1)}.dbr.off .dot0{border-color:var(--soft1)}
+.legend i.dot0,.legend i.dot1{border-radius:50%}
+.dbv{font-size:14px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.dbv span{color:var(--muted)}
+.dbr.axis{padding-top:0}.dbt.ax{background:none;height:16px;font-size:11.5px;color:var(--muted)}.dbt.ax span{position:absolute;transform:translateX(-50%)}
+@media(max-width:520px){.dbr{grid-template-columns:minmax(0,1fr) 118px}.dbv{font-size:13px}.dbl{grid-column:1/-1}.dbr.axis>div:first-child{display:none}}
 .sources ol{padding-left:22px;font-size:14.5px;columns:2;column-gap:40px;margin-top:18px}
 .sources li{margin-bottom:8px;break-inside:avoid}
 footer{padding:28px 0 48px;font-size:13.5px;color:var(--muted)}
 html{scroll-padding-top:60px;scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media(max-width:860px){.spread{grid-template-columns:minmax(0,1fr)}.col{padding-right:0}.col.bear{padding-left:0;border-left:0;border-top:1px solid var(--rule);margin-top:36px}.sources ol{columns:1}.figs{grid-template-columns:repeat(2,minmax(0,1fr))}.figs div:nth-child(2){border:0}}
+@media(max-width:860px){.spread{grid-template-columns:minmax(0,1fr)}.col{padding-right:0}.col.wider{padding-left:0;border-left:0;border-top:1px solid var(--rule);margin-top:36px}.sources ol{columns:1}.figs{grid-template-columns:repeat(2,minmax(0,1fr))}.figs div:nth-child(2){border:0}}
 @media(max-width:600px){.fig{min-height:250px}nav a{padding:13px 8px}}
 </style>
 </head>
 <body>
 <header class="wrap">
-<span class="tab">Briefing · US inequality</span>
-<h1>Better off at every rung — with the rungs farther apart</h1>
-<p class="dek">Four ways to measure well-being. For each: two charts for the bull case, two for the bear case.</p>
+<span class="tab">Two things can be true</span>
+<h1>Things got better for everyone. And the gap got wider.</h1>
+<p class="dek">Four ways to measure well-being in America. For each, the left column shows how lives improved; the right shows how the distance between the top and the bottom grew.</p>
 <div class="figs">
 <div><b>+59%</b><span>Real income, 10th percentile, 1967–2024</span></div>
 <div><b>+130%</b><span>Real income, 95th percentile, 1967–2024</span></div>
@@ -90,11 +107,11 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 <h2>Market income</h2>
 <p class="measures"><b>Captures:</b> what the economy pays households before government. <b>Misses:</b> taxes, transfers, health benefits, household size.</p>
 <div class="spread">
-<div class="col bull"><div class="colhead">Bull case</div>
-<figure><figcaption>Lower and middle incomes are at or near record highs</figcaption><div class="sub">Household income at the 10th, 20th and 50th percentiles, thousands of 2024 dollars</div><div class="fig" id="m1"></div><div class="legend" id="m1-lg"></div><p class="src">Census P60-286, Table A-4a.</p></figure>
-<figure><figcaption>Every percentile grew in real terms</figcaption><div class="sub">Cumulative real growth in household income, 1967 → 2024</div><div class="fig" id="m2"></div><p class="src">Census P60-286, Table A-4a.</p></figure>
+<div class="col better"><div class="colhead">Things got better for everyone</div>
+<figure><figcaption>Real median household income, and real income near the bottom, are at or near record highs</figcaption><div class="sub">Real (inflation-adjusted) household income, thousands of 2024 dollars. The median is the 50th percentile; the 10th and 20th percentile lines show the income of a household 10% and 20% of the way up from the bottom.</div><div class="fig" id="m1"></div><div class="legend" id="m1-lg"></div><p class="src">Census P60-286, Table A-4a.</p></figure>
+<figure><figcaption>Real income grew at every percentile</figcaption><div class="sub">Total real growth in household income, 1967 → 2024 (average annual growth below each total)</div><div class="fig" id="m2"></div><p class="src">Census P60-286, Table A-4a.</p></figure>
 </div>
-<div class="col bear"><div class="colhead">Bear case</div>
+<div class="col wider"><div class="colhead">And the gap got wider</div>
 <figure><figcaption>The top has pulled away from the bottom</figcaption><div class="sub">Ratio of household income at the 95th percentile to the 20th, and the 90th to the 10th</div><div class="fig" id="m3"></div><div class="legend" id="m3-lg"></div><p class="src">Census P60-286, Table A-4a; ratios computed from it.</p></figure>
 <figure><figcaption>The top 1% nearly doubled its share of market income</figcaption><div class="sub">Share of income before transfers and taxes, percent</div><div class="fig" id="m4"></div><div class="legend" id="m4-lg"></div><p class="src">CBO, Distribution of Household Income, 2023.</p></figure>
 </div>
@@ -106,11 +123,11 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 <h2>Income after taxes and transfers</h2>
 <p class="measures"><b>Captures:</b> market income plus Social Security, Medicaid, SNAP and refundable credits, minus federal taxes. <b>Misses:</b> saving and borrowing, state and local taxes.</p>
 <div class="spread">
-<div class="col bull"><div class="colhead">Bull case</div>
+<div class="col better"><div class="colhead">Things got better for everyone</div>
 <figure><figcaption>Taxes and transfers cut the top-to-bottom gap from 14× to 6×</figcaption><div class="sub">Average household income by quintile, 2023, thousands of dollars</div><div class="fig" id="d1"></div><div class="legend" id="d1-lg"></div><p class="src">CBO, 2023. Middle quintiles and after-transfer values read from CBO chart labels.</p></figure>
-<figure><figcaption>Measured against a fixed standard, poverty has nearly disappeared</figcaption><div class="sub">Poverty rate, percent, start vs end year</div><div class="fig" id="d2"></div><div class="legend" id="d2-lg"></div><p class="src">Burkhauser et al., NBER WP 26532 (full-income); Meyer &amp; Sullivan 2022 (consumption). Different anchors: compare changes.</p></figure>
+<figure><figcaption>Count all the help families get, and poverty has fallen far more than the official rate shows</figcaption><div class="sub">Percent of Americans below a poverty line held fixed after inflation. Each pair compares a fuller measure with the official one over the same years.</div><div class="db" id="d2"></div><div class="legend"><span><i class="dot0"></i>Start year</span><span><i class="dot1"></i>End year</span></div><p class="src">Burkhauser, Corinth, Elwell &amp; Larrimore, NBER WP 26532 (full-income); Meyer &amp; Sullivan, Consumption Poverty Report 2022. The consumption line is set so its 2015 rate equals the official rate; held fixed back to 1980, it captured a third of Americans. Compare how far each rate fell, not the starting levels.</p></figure>
 </div>
-<div class="col bear"><div class="colhead">Bear case</div>
+<div class="col wider"><div class="colhead">And the gap got wider</div>
 <figure><figcaption>After taxes and transfers, the top 1% share still nearly doubled</figcaption><div class="sub">Share of income after transfers and taxes, percent</div><div class="fig" id="d3"></div><div class="legend" id="d3-lg"></div><p class="src">CBO, 2023. Middle three quintiles lost 5 points over the same period.</p></figure>
 <figure><figcaption>Before government, the top fifth's income grew 2.5× faster</figcaption><div class="sub">Real growth in average income before transfers and taxes, 1979 → 2023</div><div class="fig" id="d4"></div><p class="src">CBO, 2023 ($19.0k → $28.5k; $179.7k → $409.3k).</p></figure>
 </div>
@@ -119,16 +136,16 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 
 <section id="consumption">
 <div class="kicker">Measure 3</div>
-<h2>Consumption</h2>
-<p class="measures"><b>Captures:</b> what households actually spend and use. <b>Misses:</b> survey under-reporting, quality change, leisure and health.</p>
+<h2>Consumption and quality of life</h2>
+<p class="measures"><b>Captures:</b> what households actually spend, own and use — and how long they live to enjoy it. <b>Misses:</b> survey under-reporting, quality change, leisure.</p>
 <div class="spread">
-<div class="col bull"><div class="colhead">Bull case</div>
-<figure><figcaption>Consumption inequality rose far less than income inequality</figcaption><div class="sub">Percent increase in the 90/10 ratio over each period</div><div class="fig" id="c1"></div><div class="legend" id="c1-lg"></div><p class="src">Meyer &amp; Sullivan, NBER Reporter 2018; 1980–2011 from their 2013 paper.</p></figure>
-<figure><figcaption>Low-income households now own what was once a luxury</figcaption><div class="sub">Percent of lowest-income households owning each item</div><div class="fig" id="c2"></div><div class="legend" id="c2-lg"></div><p class="src">1998: Census SIPP, bottom quintile. Today: EIA RECS 2020 (AC, under $20k); Census ACS 2021 (computer, under $25k); Pew 2026 (smartphone, adults under $30k).</p></figure>
+<div class="col better"><div class="colhead">Things got better for everyone</div>
+<figure><figcaption>The spending gap grew far less than the income gap</figcaption><div class="sub">How much the gap between a household at the 90th percentile and one at the 10th grew, for after-tax income and for spending (percent increase in the 90th ÷ 10th ratio)</div><div class="fig" id="c1"></div><div class="legend" id="c1-lg"></div><p class="src">Meyer &amp; Sullivan, NBER Reporter 2018; 1980–2011 from their 2013 paper.</p></figure>
+<figure><figcaption>Low-income households now own what was once middle-class</figcaption><div class="sub">Percent of households in the lowest income fifth owning each item, 1998 vs today</div><div class="fig" id="c2"></div><div class="legend" id="c2-lg"></div><p class="src">1998: Census SIPP, bottom income fifth. Today: AC, dishwasher, clothes washer — EIA RECS 2020, bottom fifth estimated from income brackets; computer (desktop or laptop) — Census ACS 2021, under $25k; phone (smartphone) — Pew 2026, adults under $30k.</p></figure>
 </div>
-<div class="col bear"><div class="colhead">Bear case</div>
-<figure><figcaption>Large gaps remain between low- and high-income households</figcaption><div class="sub">Percent of households, today</div><div class="fig" id="c3"></div><div class="legend" id="c3-lg"></div><p class="src">EIA RECS 2020; Census ACS 2021; Pew 2026; FHWA 2022 NHTS (vehicle: under $25k vs over $100k).</p></figure>
-<figure><figcaption>Life-expectancy gains went mostly to the top</figcaption><div class="sub">Gain in life expectancy at age 40, 2001–2014, years</div><div class="fig" id="c4"></div><div class="legend" id="c4-lg"></div><p class="src">Chetty et al., JAMA 2016.</p></figure>
+<div class="col wider"><div class="colhead">And the gap got wider</div>
+<figure><figcaption>Over a generation, top earners gained 7 years of life; bottom earners gained none</figcaption><div class="sub">Average age at death for men who reach 50, by lifetime earnings, born in 1930 vs 1960 (axis starts at age 70)</div><div class="fig" id="c3"></div><div class="legend" id="c3-lg"></div><p class="src">National Academies of Sciences, The Growing Gap in Life Expectancy by Income (2015). 1960 values are projections. Women: the top-to-bottom gap grew from 4 to 13.6 years.</p></figure>
+<figure><figcaption>Since 2001, the richest have added years of life; the poorest almost none</figcaption><div class="sub">Years added to life expectancy at age 40 between 2001 and 2014, richest 5% vs poorest 5% of incomes</div><div class="fig" id="c4"></div><div class="legend" id="c4-lg"></div><p class="src">Chetty et al., JAMA 2016. By 2014, the richest 1% of men outlived the poorest 1% by 14.6 years (women: 10.1 years).</p></figure>
 </div>
 </div>
 </section>
@@ -138,13 +155,13 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 <h2>Wealth</h2>
 <p class="measures"><b>Captures:</b> home equity, retirement accounts, stocks and businesses, minus debt. <b>Misses:</b> Social Security and pension promises; very sensitive to asset prices.</p>
 <div class="spread">
-<div class="col bull"><div class="colhead">Bull case</div>
-<figure><figcaption>Bottom-half net worth per household is up 50% since 1989</figcaption><div class="sub">Thousands of 2025 dollars, Q3 each year</div><div class="fig" id="w1"></div><p class="src">Fed DFA via FRED (WFRBLB50107, WFRBLB50300), deflated with CPI-U; author's calculation.</p></figure>
-<figure><figcaption>Typical families in the bottom three income fifths are wealthier</figcaption><div class="sub">Median family net worth, thousands of 2025 dollars</div><div class="fig" id="w2"></div><div class="legend" id="w2-lg"></div><p class="src">Fed Survey of Consumer Finances, converted with CPI-U.</p></figure>
+<div class="col better"><div class="colhead">Things got better for everyone</div>
+<figure><figcaption>Real net worth of bottom-half households is up 50% since 1989</figcaption><div class="sub">Real (inflation-adjusted) net worth per household in the bottom 50% of wealth, thousands of 2025 dollars, Q3 each year</div><div class="fig" id="w1"></div><p class="src">Fed DFA via FRED (WFRBLB50107, WFRBLB50300), deflated with CPI-U; author's calculation.</p></figure>
+<figure><figcaption>Typical families in the bottom three income fifths are wealthier in real terms</figcaption><div class="sub">Real median family net worth, thousands of 2025 dollars, 1989 vs 2025</div><div class="fig" id="w2"></div><div class="legend" id="w2-lg"></div><p class="src">Fed Survey of Consumer Finances, converted with CPI-U.</p></figure>
 </div>
-<div class="col bear"><div class="colhead">Bear case</div>
+<div class="col wider"><div class="colhead">And the gap got wider</div>
 <figure><figcaption>The top 1% gained share; everyone else lost it</figcaption><div class="sub">Share of total household net worth, percent</div><div class="fig" id="w3"></div><div class="legend" id="w3-lg"></div><p class="src">Fed DFA. 1989 values approximate (revised quarterly; 50–90 share derived).</p></figure>
-<figure><figcaption>Wealth growth rose steeply with income</figcaption><div class="sub">Real growth in median family net worth by income group, 1989 → 2025</div><div class="fig" id="w4"></div><p class="src">Fed SCF. Bottom 20% omitted: its median rose from $4k to $14k, too small a base for a percent.</p></figure>
+<figure><figcaption>Real wealth growth rose steeply with income</figcaption><div class="sub">Growth in real median family net worth by income group, 1989 → 2025</div><div class="fig" id="w4"></div><p class="src">Fed SCF. Bottom 20% omitted: its median rose from $4k to $14k, too small a base for a percent.</p></figure>
 </div>
 </div>
 </section>
@@ -161,14 +178,15 @@ html{scroll-padding-top:60px;scroll-behavior:smooth}
 <li><a href="https://www.eia.gov/consumption/residential/data/2020/">EIA, Residential Energy Consumption Survey 2020</a></li>
 <li><a href="https://www.census.gov/library/publications/2024/acs/acs-56.html">Census, Computer and Internet Use: 2021 (ACS-56)</a></li>
 <li><a href="https://www.pewresearch.org/internet/fact-sheet/mobile/">Pew Research Center, Mobile Fact Sheet</a></li>
-<li><a href="https://www.fhwa.dot.gov/policy/otps/mobility_trends/pdf/Mobility_Trends_Vehicles_Travel_Demand_Brief.pdf">FHWA, Mobility Trends: Vehicles (2022 NHTS)</a></li>
 <li><a href="https://jamanetwork.com/journals/jama/fullarticle/2513561">Chetty et al., Income and Life Expectancy, JAMA 2016</a></li>
+<li><a href="https://www.nationalacademies.org/read/19015/chapter/2">National Academies, The Growing Gap in Life Expectancy by Income (2015)</a></li>
+<li><a href="https://www.eia.gov/consumption/residential/data/2020/hc/pdf/HC%203.5.pdf">EIA, RECS 2020 Table HC3.5: Appliances by household income</a></li>
 <li><a href="https://fred.stlouisfed.org/release/tables?rid=453">Federal Reserve, Distributional Financial Accounts (FRED)</a></li>
 <li><a href="https://www.federalreserve.gov/publications/files/scf26.pdf">Federal Reserve, Changes in U.S. Family Finances 2022–2025 (SCF)</a></li>
 </ol>
 </section>
 </main>
-<footer class="wrap">Compiled November 2026. Derived series (ratios, bottom-50% per household, SCF in 2025 dollars) are the author's calculations; data in the <code>data/</code> folder of the repository.</footer>
+<footer class="wrap">Compiled November 2026. Derived series (ratios, annual growth rates, bottom-fifth appliance estimates, bottom-50% per household, SCF in 2025 dollars) are the author's calculations; data in the <code>data/</code> folder of the repository.</footer>
 
 <script>
 const DATA={"census":[[1967,12520,23050,44940,54880,63790,90960,115500,146000],[1968,13630,24560,46560,57220,66730,93760,118200,146700],[1969,14010,25340,48630,59470,70330,98540,125000,154500],[1970,13700,24930,47760,59040,69460,99100,126200,156700],[1971,13930,24640,46960,58530,69110,98550,126400,156500],[1972,14800,25410,48930,60830,72320,103500,133000,166600],[1973,15520,25990,49980,62150,73960,106500,137500,171100],[1974,15650,26160,48530,60270,71700,104100,134200,164700],[1975,15200,24840,46630,58630,70460,101200,129700,159600],[1976,15300,25410,47340,59630,72110,103700,133000,164500],[1977,15460,25320,47680,59920,72680,106000,135100,167800],[1978,15780,26110,49370,62260,74700,108600,140500,173800],[1979,15500,26420,49070,62140,75500,109500,141700,176900],[1980,15300,25420,47680,60210,73090,107000,139100,172200],[1981,15080,24900,46550,59190,71990,106400,139000,171300],[1982,14810,24580,46750,59020,71430,106500,140500,175800],[1983,14760,25130,46730,58650,71720,108400,141900,178300],[1984,15360,25610,47930,60420,73840,111500,146700,184600],[1985,15370,25910,48760,61570,75530,113600,149000,187700],[1986,15340,26280,50270,63850,78020,117900,154800,197800],[1987,15470,26790,50860,64650,79390,120000,158300,200800],[1988,15700,27230,51430,65130,80160,121000,160300,204900],[1989,16500,27720,52710,66240,81010,123100,164900,210300],[1990,16000,27320,51710,65440,79110,120600,161900,207100],[1991,15650,26550,50610,63530,78170,119700,160000,203300],[1992,15420,25910,49650,63010,77950,119300,159500,203600],[1993,15430,26020,49530,62700,77850,121000,164000,210000],[1994,15770,26370,49490,63370,78750,123400,166700,215700],[1995,16650,27630,51640,65380,80580,124900,168300,216800],[1996,16650,27600,51890,66340,82260,127100,172100,223400],[1997,16860,28180,53440,67720,84180,130800,178700,231600],[1998,17510,29100,54900,70200,87270,135400,182900,238700],[1999,18300,30310,56460,71980,89120,140100,190600,251200],[2000,18090,30640,56420,71790,89210,139800,191500,248300],[2001,17870,30050,55700,70610,88620,139600,190000,251600],[2002,17540,29590,55120,70040,87800,138800,188500,247700],[2003,17050,29090,55010,70080,88090,140500,191200,249300],[2004,17210,29180,54730,69970,87170,138900,190800,248000],[2005,17310,29420,55220,71060,88440,140700,193400,254600],[2006,17890,29860,56310,71850,89440,144600,198200,259400],[2007,17680,29490,56830,73010,90110,145300,197700,257200],[2008,17050,29040,54680,70520,87940,140500,193900,252300],[2009,17060,28790,54260,70070,86990,140800,193700,253400],[2010,16470,27770,52760,68420,85390,138900,192700,250600],[2011,16160,27290,51880,67410,84080,136800,193400,250500],[2012,16170,27220,52540,67400,85330,137500,192900,252600],[2013,16190,27280,52460,67800,85500,138300,195800,255900],[2014,15800,27580,53010,69060,87790,144500,202700,265900],[2015,17080,29370,56040,72790,92740,150700,208900,276200],[2016,17370,30640,58220,75380,95590,154500,217700,287600],[2017,17840,30910,59110,77000,97300,159200,224700,297400],[2018,17990,31490,61500,77700,97830,159900,226700,305900],[2019,19420,34040,64840,83260,104800,172700,243800,327200],[2020,18780,32710,63080,81580,102600,170300,242300,329800],[2021,17980,32160,63150,81270,103000,171200,243400,328700],[2022,18230,31980,61850,79500,100200,163100,230200,314500],[2023,19470,33850,63810,82690,103600,169500,241000,324200],[2024,19900,34510,65100,83730,105500,175700,251000,335700]],"b50":[[1989,40064],[1990,38989],[1991,41522],[1992,45688],[1993,43544],[1994,40540],[1995,43688],[1996,42181],[1997,43817],[1998,46843],[1999,46426],[2000,49043],[2001,45020],[2002,41594],[2003,39059],[2004,39536],[2005,42078],[2006,41218],[2007,35495],[2008,18998],[2009,9916],[2010,8310],[2011,6996],[2012,9313],[2013,15107],[2014,18467],[2015,20051],[2016,24821],[2017,27866],[2018,32000],[2019,35349],[2020,46335],[2021,60470],[2022,60612],[2023,58447],[2024,59297],[2025,60268]],"scf":{"1989":[4.4,60.2,104.1,166.1,329.7,970.5],"1992":[8.9,62.4,88.8,169.2,258.7,816.8],"1995":[12.6,70.4,97.3,159.5,268.7,744.5],"1998":[11.6,65.4,105.5,221.9,372.3,893.6],"2001":[14.3,68.0,115.5,260.0,477.7,1513.0],"2004":[12.8,57.4,122.7,272.7,533.9,1574.7],"2007":[12.5,58.4,136.2,318.4,550.8,1730.2],"2010":[10.1,42.8,92.0,191.5,444.4,1762.4],"2013":[8.8,38.5,76.5,222.8,397.7,1555.5],"2016":[8.9,39.7,118.6,228.5,530.9,2180.8],"2019":[12.4,56.2,118.4,253.8,487.4,2026.1],"2022":[15.3,77.7,174.4,336.1,817.5,2797.5],"2025":[14.4,77.1,188.2,362.5,814.6,3669.9]}};
@@ -181,16 +199,16 @@ function bars(id,o){
   const s=document.getElementById(id);
   const draw=()=>{
     const W=s.clientWidth,H=s.clientHeight,narrow=W<460;
-    const l=4,r=4,t=26,b=o.two?50:34,ph=H-t-b,pw=W-l-r;
+    const l=4,r=4,t=o.vl2?44:26,b=o.two?50:34,ph=H-t-b,pw=W-l-r,mn=o.min||0;
     const n=o.cats.length,k=o.series.length,max=o.max||Math.max(...o.series.flatMap(x=>x.vals))*1.12;
     const gw=pw/n,gap=3,bw=Math.min(60,(gw*0.82-gap*(k-1))/k),fs=narrow?11:12.5;
     let h=`<line x1="${l}" x2="${W-r}" y1="${t+ph}" y2="${t+ph}" stroke="${css('--rule')}"/>`;
     o.cats.forEach((c,i)=>{
       const cx=l+gw*i+gw/2,x0=cx-(bw*k+gap*(k-1))/2;
       o.series.forEach((se,j)=>{
-        const v=se.vals[i],bh=ph*Math.max(v,0)/max,x=x0+j*(bw+gap),y=t+ph-bh;
+        const v=se.vals[i],bh=ph*Math.max(v-mn,0)/(max-mn),x=x0+j*(bw+gap),y=t+ph-bh;
         h+=`<rect x="${x}" y="${y}" width="${bw}" height="${bh}" fill="${css(se.c)}"/>`;
-        if(bw>=22||k<3)h+=`<text x="${x+bw/2}" y="${y-6}" text-anchor="middle" font-size="${fs}" font-weight="600" fill="${css('--ink')}">${esc(o.fmt(v))}</text>`;
+        if(bw>=22||k<3){const pr=String(o.fmt(v)).split('|');h+=`<text x="${x+bw/2}" y="${y-6-(pr.length-1)*15}" text-anchor="middle" font-size="${fs}" font-weight="600" fill="${css('--ink')}">${esc(pr[0])}</text>`;if(pr[1])h+=`<text x="${x+bw/2}" y="${y-6}" text-anchor="middle" font-size="${fs-1}" fill="${css('--muted')}">${esc(pr[1])}</text>`;}
       });
       const lab=(narrow&&o.short?o.short[i]:c).split('|');
       lab.forEach((ln,q)=>{h+=`<text x="${cx}" y="${t+ph+18+q*15}" text-anchor="middle" font-size="${fs}" fill="${css('--muted')}">${esc(ln)}</text>`;});
@@ -226,6 +244,15 @@ function lines(id,o){
   if(o.series.length>1)legend(id,o.series.map(x=>[x.name,x.c]));
 }
 
+function dumbbell(id,rows){
+  const el=document.getElementById(id),M=36,pct=v=>(v/M*100).toFixed(2)+'%';
+  el.innerHTML=rows.map(r=>r.g?`<div class="dbg">${esc(r.g)}</div>`:
+   `<div class="dbr${r.o?' off':''}"><div class="dbl"><b>${esc(r.n)}</b><small>${esc(r.d)}</small></div>
+    <div class="dbt"><span class="dbline" style="left:${pct(Math.min(r.a,r.b))};width:${pct(Math.abs(r.a-r.b))}"></span>
+    <span class="dot dot0" style="left:${pct(r.a)}"></span><span class="dot dot1" style="left:${pct(r.b)}"></span></div>
+    <div class="dbv"><span>${r.a}%</span> → <b>${r.b}%</b></div></div>`).join('')+
+   `<div class="dbr axis"><div></div><div class="dbt ax">${[0,10,20,30].map(v=>`<span style="left:${pct(v)}">${v}%</span>`).join('')}</div><div></div></div>`;
+}
 const C=DATA.census,first=C[0],last=C.at(-1);
 const pn=['10th','20th','40th','50th','60th','80th','90th','95th'];
 const k=v=>'$'+Math.round(v/1000)+'k';
@@ -234,22 +261,29 @@ const xt=[1970,1980,1990,2000,2010,2020];
 /* 1 Market income */
 lines('m1',{x0:1967,x1:2024,y0:0,y1:90,yt:[0,15,30,45,60,75,90],yf:v=>'$'+v+'k',xt,endW:62,
   series:[[1,'10th','--c1'],[2,'20th','--c2'],[4,'Median','--slate']].map(([i,n,c])=>({name:n,c,end:k(last[i]),pts:C.map(r=>[r[0],r[i]/1000])})),label:'Income at 10th, 20th and 50th percentiles'});
-bars('m2',{cats:pn,series:[{name:'Growth',c:'--slate',vals:pn.map((_,i)=>Math.round((last[i+1]/first[i+1]-1)*100))}],fmt:v=>'+'+v+'%',label:'Real income growth by percentile'});
+const yrsN=last[0]-first[0],cg={};pn.forEach((_,i)=>{const g=Math.round((last[i+1]/first[i+1]-1)*100);cg[g]=((Math.pow(last[i+1]/first[i+1],1/yrsN)-1)*100).toFixed(1);});
+bars('m2',{vl2:true,cats:pn,series:[{name:'Growth',c:'--slate',vals:pn.map((_,i)=>Math.round((last[i+1]/first[i+1]-1)*100))}],fmt:v=>'+'+v+'%|'+cg[v]+'%/yr',label:'Real income growth by percentile, total and per year'});
 lines('m3',{x0:1967,x1:2024,y0:4,y1:14,yt:[4,6,8,10,12,14],yf:v=>v+'×',xt,endW:52,
   series:[{name:'90th ÷ 10th',c:'--red',end:(last[7]/last[1]).toFixed(1)+'×',pts:C.map(r=>[r[0],r[7]/r[1]])},{name:'95th ÷ 20th',c:'--c7',end:(last[8]/last[2]).toFixed(1)+'×',pts:C.map(r=>[r[0],r[8]/r[2]])}],label:'Income ratios over time'});
 bars('m4',{cats:['Top 1%','Lowest 20%'],series:[{name:'1979',c:'--softr',vals:[9,5]},{name:'2023',c:'--red',vals:[16,4]}],fmt:v=>v+'%',label:'Pre-tax income shares 1979 vs 2023'});
 
 /* 2 After taxes and transfers */
 bars('d1',{cats:['Lowest','Second','Middle','Fourth','Highest'],short:['Q1','Q2','Q3','Q4','Q5'],series:[{name:'Before transfers & taxes',c:'--softs',vals:[28.5,63,99,149,409.3]},{name:'After transfers & taxes',c:'--slate',vals:[48,67,91,126,305]}],fmt:v=>'$'+Math.round(v),label:'CBO income by quintile 2023'});
-bars('d2',{two:true,cats:['Official|1963→2019','Full-income|1963→2019','Official|1980→2022','Consumption|1980→2022'],short:['Official|63→19','Full|63→19','Official|80→22','Consump.|80→22'],series:[{name:'Start year',c:'--softs',vals:[19.5,19.5,13.0,33.8]},{name:'End year',c:'--slate',vals:[10.5,1.6,11.5,6.0]}],fmt:v=>v+'%',label:'Poverty rates by measure'});
+dumbbell('d2',[
+ {g:'1963 → 2019'},
+ {n:'Official poverty rate',d:'Cash income before taxes; leaves out food stamps, tax credits, Medicaid',a:19.5,b:10.5,o:true},
+ {n:'Full-income poverty rate',d:'Adds tax credits, food and housing aid, and health insurance',a:19.5,b:1.6},
+ {g:'1980 → 2022'},
+ {n:'Official poverty rate',d:'Same official measure, over the later period',a:13.0,b:11.5,o:true},
+ {n:'Consumption poverty rate',d:'Based on what families actually spend and use',a:33.8,b:6.0}]);
 bars('d3',{cats:['Top 1%','Lowest 20%'],series:[{name:'1979',c:'--softr',vals:[7,8]},{name:'2023',c:'--red',vals:[13,8]}],fmt:v=>v+'%',label:'After-tax income shares 1979 vs 2023'});
 bars('d4',{cats:['Lowest fifth','Highest fifth'],series:[{name:'Growth',c:'--red',vals:[50,128]}],fmt:v=>'+'+v+'%',label:'Pre-transfer income growth 1979-2023'});
 
 /* 3 Consumption */
-bars('c1',{two:true,cats:['Early 1960s|→ 2010s','1980s','1980|→ 2011'],series:[{name:'After-tax income',c:'--softs',vals:[26,28,45]},{name:'Consumption',c:'--slate',vals:[7,5,19]}],fmt:v=>'+'+v+'%',label:'90/10 ratio rise income vs consumption'});
-bars('c2',{cats:['Air conditioning','Desktop / laptop','Cell / smartphone'],short:['AC','Computer','Phone'],series:[{name:'1998',c:'--softs',vals:[70.3,16.0,12.5]},{name:'Today',c:'--slate',vals:[81,56,80]}],max:100,fmt:v=>Math.round(v)+'%',label:'Low-income durables 1998 vs today'});
-bars('c3',{cats:['Air conditioning','Desktop / laptop','Smartphone','Has a vehicle'],short:['AC','Computer','Phone','Vehicle'],series:[{name:'Lowest income',c:'--softr',vals:[81,56,80,70]},{name:'Highest income',c:'--red',vals:[93,96,98,96]}],max:110,fmt:v=>Math.round(v)+'%',label:'Durables gap low vs high income today'});
-bars('c4',{cats:['Men','Women'],series:[{name:'Top 5% of income',c:'--red',vals:[2.34,2.91]},{name:'Bottom 5%',c:'--softr',vals:[0.32,0.04]}],fmt:v=>'+'+v,label:'Life expectancy gains by income'});
+bars('c1',{two:true,cats:['Early 1960s|to 2010s','During|the 1980s','1980|to 2011'],series:[{name:'Income gap grew by',c:'--softs',vals:[26,28,45]},{name:'Spending gap grew by',c:'--slate',vals:[7,5,19]}],fmt:v=>'+'+v+'%',label:'90/10 ratio rise income vs consumption'});
+bars('c2',{two:true,cats:['Air|conditioning','Dishwasher','Clothes|washer','Computer','Cell phone'],short:['AC','Dish-|washer','Washer','Com-|puter','Phone'],series:[{name:'1998',c:'--softs',vals:[70.3,29.0,64.4,16.0,12.5]},{name:'Today',c:'--slate',vals:[82.6,43.2,65.8,56,80]}],max:100,fmt:v=>Math.round(v)+'%',label:'Lowest-income-fifth ownership of durables 1998 vs today'});
+bars('c3',{two:true,min:70,max:92,cats:['Lowest-earning|fifth','Highest-earning|fifth'],short:['Lowest|fifth','Highest|fifth'],series:[{name:'Born 1930',c:'--softr',vals:[76.6,81.7]},{name:'Born 1960 (projected)',c:'--red',vals:[76.1,88.8]}],fmt:v=>'age '+v,label:'Life expectancy at 50 for men by earnings, 1930 vs 1960 cohorts'});
+bars('c4',{cats:['Men','Women'],series:[{name:'Richest 5% of incomes',c:'--red',vals:[2.34,2.91]},{name:'Poorest 5% of incomes',c:'--softr',vals:[0.32,0.04]}],fmt:v=>'+'+v+' yrs',label:'Years of life expectancy gained 2001-2014 by income'});
 
 /* 4 Wealth */
 lines('w1',{x0:1989,x1:2025,y0:0,y1:70,yt:[0,10,20,30,40,50,60,70],yf:v=>'$'+v+'k',xt:[1990,2000,2010,2020],area:true,

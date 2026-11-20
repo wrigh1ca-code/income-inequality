@@ -1,10 +1,10 @@
-# Better Off, Less Equal?
+# Two Things Can Be True
 
-A one-page briefing on US inequality and living standards. It measures the same households four ways, with two charts for the bull case and two for the bear case under each:
+A one-page briefing on US inequality and living standards. It measures the same households four ways. Under each, two charts show that things got better for everyone, and two show that the gap got wider:
 
 1. **Market income**: Census household income at selected percentiles, 1967–2024
 2. **Income after taxes and transfers**: CBO's distribution of household income, plus poverty measured against fixed standards
-3. **Consumption**: BLS spending by quintile, Meyer & Sullivan's work on consumption inequality, and ownership of durable goods by income
+3. **Consumption and quality of life**: Meyer & Sullivan's work on consumption inequality, ownership of durable goods by income, and life expectancy by income
 4. **Wealth**: shares from the Fed's Distributional Financial Accounts, bottom-50% real net worth, and Survey of Consumer Finances medians by income group
 
 ## Running it
